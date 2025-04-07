@@ -1,5 +1,5 @@
 import './App.css'
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import SingleCard from './components/SingleCard';
 import { Card } from './lib/classes';
 
@@ -37,13 +37,12 @@ function App() {
     setChoiceTwo(null);
   }
 
-  const resetTurn = () => {
+  const resetTurn = useCallback(() => {
     setChoiceOne(null);
     setChoiceTwo(null);
     setDisabled(false);
     setTurns(prevTurns => prevTurns + 1);
-    console.log('turns: ' + turns);
-  }
+  }, []);
 
   const handleChoice = (card: Card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
@@ -72,17 +71,13 @@ function App() {
               }
             });
           })
-        console.log('correct!');
-        }else{
-        console.log('wrong!!');
+
         }
 
         setTimeout(resetTurn, 1000);
     }
 
-  }, [choiceOne, choiceTwo]); 
-
-  console.log(cards);
+  }, [choiceOne, choiceTwo, resetTurn]); 
 
   return (
     <div className="App">
