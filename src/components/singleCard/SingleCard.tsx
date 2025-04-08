@@ -1,5 +1,5 @@
 import './SingleCard.css';
-import { SingleCardProps } from '../lib/types';
+import { SingleCardProps } from '../../lib/types';
 
 function SingleCard({ card, handleChoice, flipped, disabled }: SingleCardProps) {
 

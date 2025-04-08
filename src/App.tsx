@@ -1,6 +1,6 @@
 import './App.css'
 import { useCallback, useEffect, useState } from 'react';
-import SingleCard from './components/SingleCard';
+import SingleCard from './components/singleCard/SingleCard';
 import { Card } from './lib/classes';
 
 const cardImages: Card[] = [
