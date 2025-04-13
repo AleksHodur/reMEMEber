@@ -1,7 +1,9 @@
 import './App.css'
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import SingleCard from './components/singleCard/SingleCard';
 import { Card } from './lib/classes';
+import Modal from './components/modal/Modal';
+import { ModalContext } from './context/ModalContext';
 
 const cardImages: Card[] = [
   new Card("/img/drakeposting-1.jpg", false, 1, 'drakeposting', 1),
@@ -25,6 +27,7 @@ function App() {
   const [disabled, setDisabled] = useState(false);
   const [choiceOne, setChoiceOne] = useState<Card | null>(null);
   const [choiceTwo, setChoiceTwo] = useState<Card | null>(null);
+  const { showModal } = useContext(ModalContext);
 
   const shuffleCards = () => {
     const shuffledCards = [...cardImages]
@@ -95,6 +98,7 @@ function App() {
         ))}
       </div>
       <p>Turns: { turns }</p>
+      {showModal && <Modal />}
     </div>
   );
 }

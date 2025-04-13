@@ -1,0 +1,44 @@
+.behind-modal {
+    background-color: black;
+    opacity: 0.4;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+}
+
+.modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 80%;
+    width: 50%;
+    background-color: #ffedb2;
+    border: solid 1px #ffedb2;
+    border-radius: 10px;
+}
+
+.modal h2 {
+    color: #f8a310;
+}
+
+.modal .x-button {
+    position: absolute;
+    right: 2vw;
+    top: 2.5vh;
+}
+
+.modal p {
+    color: black;
+    font-size: 1.3rem;
+    margin: 2em;
+    line-height: 1.5em;
+    white-space: pre-wrap;
+}
