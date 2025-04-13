@@ -4,10 +4,10 @@ import { ModalContext } from '../../context/ModalContext';
 
 function Modal () {
 
-    const { title, content, goButton, setShowModal } = useContext(ModalContext);
+    const { modalTitle: title, modalContent: content, modalButton: goButton, dispatch } = useContext(ModalContext);
 
     const handleClick = () => {
-        setShowModal(false);
+        dispatch({ type: 'CLOSE_MODAL', payload: null });
     }
 
     return ( 

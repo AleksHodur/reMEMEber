@@ -23,11 +23,14 @@ const cardImages: Card[] = [
 function App() {
 
   const [cards, setCards] = useState<Card[]>([]);
-  const [turns, setTurns] = useState(0);
-  const [disabled, setDisabled] = useState(false);
+  const [turns, setTurns] = useState<number>(0);
+  const [disabled, setDisabled] = useState<boolean>(false);
   const [choiceOne, setChoiceOne] = useState<Card | null>(null);
   const [choiceTwo, setChoiceTwo] = useState<Card | null>(null);
-  const { showModal } = useContext(ModalContext);
+
+  const [matchFlag, setMatchFlag] = useState<boolean>(false);
+
+  const { showModal, dispatch } = useContext(ModalContext);
 
   const shuffleCards = () => {
     const shuffledCards = [...cardImages]
@@ -44,6 +47,7 @@ function App() {
     setChoiceOne(null);
     setChoiceTwo(null);
     setDisabled(false);
+    setMatchFlag(false);
     setTurns(prevTurns => prevTurns + 1);
   }, []);
 
@@ -68,7 +72,10 @@ function App() {
             return prevCards.map(card => {
 
               if(card.meme === choiceOne.meme){
+
+                setMatchFlag(true);
                 return {...card, matched: true};
+
               }else{
                 return card;
               }
@@ -81,6 +88,20 @@ function App() {
     }
 
   }, [choiceOne, choiceTwo, resetTurn]); 
+
+  useEffect(() => {
+
+    const matchedCards = cards.filter((card) => card.matched == true);
+    
+    if(matchedCards.length === cards.length && matchedCards.length != 0) {
+      
+      setTimeout(() => {
+        dispatch({ type: 'WIN_MESSAGE', payload: null});
+
+      }, 800);
+    }
+
+  }, [matchFlag]);
 
   return (
     <div className="App">

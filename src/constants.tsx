@@ -8,6 +8,12 @@ export const constants: any = {
                      "can have some laughs.\n\nRemember: JUST COMPLETE THE MEME!",
 
             button: "Hell yeah I'm ready"
+        },
+
+        win: {
+            title: 'You did it!!',
+            content: "Congratulations on completing this obviuously very meaningful task.",
+            button: "New game"
         }
     }
 };

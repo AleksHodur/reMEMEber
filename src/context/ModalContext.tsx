@@ -1,41 +1,85 @@
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, useReducer } from "react";
 import { constants } from '../constants';
 
 type ModalContextType = {
-    title: string,
-    //setTitle: (title: string) => void,
-    content: string,
-    goButton: string,
-    //setContent: (content: string) => void,
-    showModal: boolean
-    setShowModal: (showModal: boolean) => void,
+    modalTitle: string,
+    modalContent: string,
+    modalButton: string,
+    showModal: boolean,
+    dispatch: React.Dispatch<ModalAction>
 };
 
-const defaultValue: ModalContextType = {
-    title: '',
-    //setTitle: () => {},
-    content: '',
-    //setContent: () => {},
-    showModal: false,
-    goButton: '',
-    setShowModal: () => {}
-};
+type ModalStateType = {
+    modalTitle: string,
+    modalContent: string,
+    modalButton: string,
+    showModal: boolean
+}
+
+type ModalAction = {
+    type: 'WELCOME_PAGE' | 'WIN_MESSAGE' | 'CLOSE_MODAL',
+    payload: any
+}
 
 type ModalChildrenType = {
     children: ReactNode
 };
 
+const defaultValue: ModalContextType = {
+    modalTitle: '',
+    modalContent: '',
+    modalButton: '',
+    showModal: false,
+    dispatch: () => {}
+};
+
+
+const initialState: ModalStateType = {
+    modalTitle: constants.text.init.title,
+    modalContent: constants.text.init.content,
+    modalButton: constants.text.init.button,
+    showModal: true
+} 
+
+const modalReducer = (state: ModalStateType, action: ModalAction): ModalStateType => {
+    switch(action.type) {
+
+        case 'WELCOME_PAGE':
+            return {
+                modalTitle: constants.text.init.title,
+                modalContent: constants.text.init.content,
+                modalButton: constants.text.init.button,
+                showModal: true
+            }
+
+        case 'WIN_MESSAGE':
+            return {
+                modalTitle: constants.text.win.title,
+                modalContent: constants.text.win.content,
+                modalButton: constants.text.win.button,
+                showModal: true
+            }
+
+        case 'CLOSE_MODAL':
+            return {
+                ...state,
+                showModal: false
+            }
+
+        default:
+            return state;
+    }
+
+}
+
 export const ModalContext = createContext<ModalContextType>(defaultValue);
 
 export const ModalContextProvider = ({ children }: ModalChildrenType) => {
 
-    const [title, setTitle] = useState(constants.text.init.title);
-    const [content, setContent] = useState(constants.text.init.content);
-    const [goButton, setGoButton] = useState(constants.text.init.button);
-    const [showModal, setShowModal] = useState(true);
+    const [state, dispatch] = useReducer(modalReducer, initialState);
 
     return (
-        <ModalContext.Provider value={{ title, content, goButton, showModal, setShowModal }}>
+        <ModalContext.Provider value={{ ...state, dispatch }}>
             { children }
         </ModalContext.Provider>
     );
