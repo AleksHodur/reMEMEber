@@ -42,3 +42,18 @@
     line-height: 1.5em;
     white-space: pre-wrap;
 }
+
+/* Responsive styles */
+
+@media (orientation: portrait) {
+    .modal {
+        width: 80%;
+        height: 60%;
+    }
+    .modal p {
+      font-size: 1rem;
+    }
+    .modal .x-button {
+        display: none;
+    }
+}

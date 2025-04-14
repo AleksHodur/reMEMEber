@@ -91,9 +91,9 @@ function App() {
 
   useEffect(() => {
 
-    const matchedCards = cards.filter((card) => card.matched == true);
+    const matchedCards = cards.filter((card) => card.matched === true);
     
-    if(matchedCards.length === cards.length && matchedCards.length != 0) {
+    if(matchedCards.length === cards.length && matchedCards.length !== 0) {
       
       setTimeout(() => {
         dispatch({ type: 'WIN_MESSAGE', payload: null});
@@ -105,7 +105,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>reMEMEber</h1>
+      <h1 className='game-title'>reMEMEber</h1>
       <button onClick={ shuffleCards }>New Game</button>
 
       <div className="card-grid">

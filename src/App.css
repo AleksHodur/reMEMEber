@@ -1,12 +1,15 @@
 .App {
-  width: 55%;
   max-width: 960px;
   margin: 40px auto;
 }
-h1{
-  font-family: "Jersey 10 Charted";
-  font-size: 8vh;
+
+.game-title{
+  font-family: "Bagel Fat One";
+  color: #feba45;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
 }
+
 button {
   background: none;
   border: 2px solid #fff;
@@ -17,15 +20,47 @@ button {
   cursor: pointer;
   font-size: 1em;
 }
+
 button:hover {
-  background: #c23866;
+  background: #DE6F06;
   color: #fff;
 }
 
 .card-grid{
-  margin-top: 40px;
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 20px;
   width: 100%;
+}
+
+/* Responsive styles */
+
+@media (orientation: landscape) {
+  .card-grid {
+    margin-top: 40px;
+    grid-template-columns: auto auto auto auto;
+  }
+
+  .App{
+    width: 55%;
+  }
+
+  .game-title {
+    font-size: 8vh;
+  }
+}
+
+@media (orientation: portrait) {
+  .App{
+    width: 80%;
+  }
+
+  .game-title {
+    font-size: 6vh;
+  }
+
+  .card-grid {
+    margin-top: 20px;
+    grid-template-columns: auto auto auto;
+  }
 }
