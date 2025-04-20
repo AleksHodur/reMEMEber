@@ -23,6 +23,7 @@
     background-color: #ffedb2;
     border: solid 1px #ffedb2;
     border-radius: 10px;
+    text-align: center;
 }
 
 .modal h2 {
@@ -43,6 +44,12 @@
     white-space: pre-wrap;
 }
 
+.modal .button-panel {
+    display: flex;
+    justify-content: center;
+    margin-left: 2em;
+}
+
 .modal .option-button {
     margin-right: 2em;
 }
@@ -52,7 +59,7 @@
 @media (orientation: portrait) {
     .modal {
         width: 80%;
-        height: 60%;
+        height: 70%;
     }
     .modal p {
       font-size: 1rem;

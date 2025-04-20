@@ -3,7 +3,7 @@ export const constants: any = {
         init: {
             title: 'Welcome to reMEMEber',
             content: "reMEMEber is a memory card game with some special twist.\n\n" +      
-                     "You just need to complete the meme. Can you do it? It's eaaasy... " +
+                     "Each card will have on the other side a part of a meme and you just need to complete it by trying to uncover the other part. Can you do it? It's eaaasy... " +
                      "Like a classic memory card game, but instead of some boring stuff, you " +
                      "can have some laughs.\n\nRemember: JUST COMPLETE THE MEME!",
 
@@ -12,7 +12,7 @@ export const constants: any = {
 
         win: {
             title: 'You did it!!',
-            content: "Congratulations on completing this obviuously very meaningful task.",
+            content: "Congratulations on completing this obviously very meaningful task.",
             button: "New game",
             closeButton: "Close"
         }
