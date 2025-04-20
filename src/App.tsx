@@ -27,6 +27,7 @@ function App() {
   const [disabled, setDisabled] = useState<boolean>(false);
   const [choiceOne, setChoiceOne] = useState<Card | null>(null);
   const [choiceTwo, setChoiceTwo] = useState<Card | null>(null);
+  const [victory, setVictory] = useState<boolean>(false);
 
   const [matchFlag, setMatchFlag] = useState<boolean>(false);
 
@@ -41,6 +42,7 @@ function App() {
     setTurns(0);
     setChoiceOne(null);
     setChoiceTwo(null);
+    setVictory(false);
   }
 
   const resetTurn = useCallback(() => {
@@ -56,7 +58,11 @@ function App() {
   }
 
   const handleInfo = () => {
-    dispatch({ type: 'WELCOME_PAGE', payload: null });
+    if (victory) {
+      dispatch({ type: 'WIN_MESSAGE', payload: null });
+    } else {
+      dispatch({ type: 'WELCOME_PAGE', payload: null });
+    }
   }
 
   const showWinMessage = useCallback(() => {
@@ -102,6 +108,8 @@ function App() {
     const matchedCards = cards.filter((card) => card.matched === true);
     
     if(matchedCards.length === cards.length && matchedCards.length !== 0) {
+
+      setVictory(true);
       
       setTimeout(() => {
         showWinMessage();
