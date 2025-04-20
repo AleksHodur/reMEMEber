@@ -2,11 +2,20 @@ import { useContext } from 'react';
 import './Modal.css';
 import { ModalContext } from '../../context/ModalContext';
 
-function Modal () {
+type ModalProps = {
+    newGame: Function
+}
 
-    const { modalTitle: title, modalContent: content, modalButton: goButton, dispatch } = useContext(ModalContext);
+function Modal ({ newGame }: ModalProps) {
 
-    const handleClick = () => {
+    const { modalTitle: title, modalContent: content, goButton, newGameButton, dispatch } = useContext(ModalContext);
+
+    const handleClose = () => {
+        dispatch({ type: 'CLOSE_MODAL', payload: null });
+    }
+
+    const handleNewGame = () => {
+        newGame();
         dispatch({ type: 'CLOSE_MODAL', payload: null });
     }
 
@@ -16,8 +25,15 @@ function Modal () {
         <div className="modal">
             <h2>{ title }</h2>
             <p>{ content }</p>
-            <button className='x-button' onClick={ handleClick }>X</button>
-            <button className='option-button' onClick={ handleClick }>{ goButton }</button>
+            <button className='x-button' onClick={ handleClose }>X</button>
+
+            { goButton !== null && (
+                <button className='option-button' onClick={ handleClose }>{ goButton }</button>
+            )}
+
+            { newGameButton !== null && (
+                <button className='option-button' onClick={ handleNewGame }>{ newGameButton }</button>
+            ) }
         </div>
         </>
     );

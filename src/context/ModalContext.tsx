@@ -4,7 +4,8 @@ import { constants } from '../constants';
 type ModalContextType = {
     modalTitle: string,
     modalContent: string,
-    modalButton: string,
+    goButton: string | null,
+    newGameButton: string | null,
     showModal: boolean,
     dispatch: React.Dispatch<ModalAction>
 };
@@ -12,7 +13,8 @@ type ModalContextType = {
 type ModalStateType = {
     modalTitle: string,
     modalContent: string,
-    modalButton: string,
+    goButton: string | null,
+    newGameButton: string | null,
     showModal: boolean
 }
 
@@ -28,7 +30,8 @@ type ModalChildrenType = {
 const defaultValue: ModalContextType = {
     modalTitle: '',
     modalContent: '',
-    modalButton: '',
+    goButton: '',
+    newGameButton: null,
     showModal: false,
     dispatch: () => {}
 };
@@ -37,8 +40,9 @@ const defaultValue: ModalContextType = {
 const initialState: ModalStateType = {
     modalTitle: constants.text.init.title,
     modalContent: constants.text.init.content,
-    modalButton: constants.text.init.button,
-    showModal: true
+    goButton: constants.text.init.button,
+    newGameButton: null,
+    showModal: true,
 } 
 
 const modalReducer = (state: ModalStateType, action: ModalAction): ModalStateType => {
@@ -48,7 +52,8 @@ const modalReducer = (state: ModalStateType, action: ModalAction): ModalStateTyp
             return {
                 modalTitle: constants.text.init.title,
                 modalContent: constants.text.init.content,
-                modalButton: constants.text.init.button,
+                goButton: constants.text.init.button,
+                newGameButton: null,
                 showModal: true
             }
 
@@ -56,7 +61,8 @@ const modalReducer = (state: ModalStateType, action: ModalAction): ModalStateTyp
             return {
                 modalTitle: constants.text.win.title,
                 modalContent: constants.text.win.content,
-                modalButton: constants.text.win.button,
+                goButton: null,
+                newGameButton: constants.text.win.button,
                 showModal: true
             }
 

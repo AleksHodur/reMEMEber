@@ -119,9 +119,9 @@ function App() {
         ))}
       </div>
       <p>Turns: { turns }</p>
-      {showModal && <Modal />}
+      {showModal && <Modal newGame={shuffleCards} />}
     </div>
   );
 }
 
-export default App
+export default App;
