@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode, useReducer } from "react";
+import { createContext, ReactNode, useReducer } from "react";
 import { constants } from '../constants';
 
 type ModalContextType = {
