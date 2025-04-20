@@ -59,6 +59,10 @@ function App() {
     dispatch({ type: 'WELCOME_PAGE', payload: null });
   }
 
+  const showWinMessage = useCallback(() => {
+    dispatch({ type: 'WIN_MESSAGE', payload: null});
+  }, [dispatch]);
+
   //start game automatically
   useEffect(() => {
     shuffleCards();
@@ -100,12 +104,12 @@ function App() {
     if(matchedCards.length === cards.length && matchedCards.length !== 0) {
       
       setTimeout(() => {
-        dispatch({ type: 'WIN_MESSAGE', payload: null});
+        showWinMessage();
 
       }, 800);
     }
 
-  }, [matchFlag]);
+  }, [matchFlag, cards, showWinMessage]);
 
   return (
     <div className="App">
