@@ -11,8 +11,10 @@ Typescript using React.js. Design and animations with CSS
 
 ## Screenshots
 
-![imagen](https://github.com/AleksHodur/reMEMEber/assets/122903436/53a2acfc-e8a0-4de8-a553-6e057f48a0b6)
-![imagen](https://github.com/AleksHodur/reMEMEber/assets/122903436/9d0f3726-75da-441f-83fc-f848f881e056)
+![image](https://github.com/user-attachments/assets/78a87507-80ba-4f74-86d8-effe1956fef5)
+
+![image](https://github.com/user-attachments/assets/507b082e-aa26-4cb6-a9e0-227eb05374da)
+
 
 ## Still making some changes
 More features coming soon!
