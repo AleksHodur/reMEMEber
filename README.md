@@ -2,6 +2,10 @@
 
 reMEMEber is a memory card game with Internet's most memorable memes
 
+## Try it out!
+
+https://rememeber.netlify.app/
+
 ## Written in...
 Typescript using React.js. Design and animations with CSS
 
