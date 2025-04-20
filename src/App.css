@@ -3,11 +3,31 @@
   margin: 40px auto;
 }
 
+.game-and-info {
+  display: flex;
+  justify-content: center;
+}
+
 .game-title{
   font-family: "Bagel Fat One";
   color: #feba45;
   letter-spacing: 4px;
   margin-bottom: 16px;
+}
+
+.game-and-info .icon {
+  display: inline;
+  height: 2em;
+  align-self: center;
+  margin-left: 0.5em;
+}
+
+.game-and-info .icon img {
+  width: 1.5em;
+}
+
+.icon:hover {
+  cursor: pointer;
 }
 
 button {

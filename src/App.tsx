@@ -55,6 +55,10 @@ function App() {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   }
 
+  const handleInfo = () => {
+    dispatch({ type: 'WELCOME_PAGE', payload: null });
+  }
+
   //start game automatically
   useEffect(() => {
     shuffleCards();
@@ -105,7 +109,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className='game-title'>reMEMEber</h1>
+      <div className="game-and-info">
+        <h1 className='game-title'>reMEMEber</h1>
+        <div className="icon" onClick={ handleInfo }>
+          <img src="/icons/info-svgrepo-com.svg" alt="info" />
+        </div>
+      </div>
       <button onClick={ shuffleCards }>New Game</button>
 
       <div className="card-grid">
