@@ -16,7 +16,7 @@ function Modal ({ newGame }: ModalProps) {
 
     const handleNewGame = () => {
         newGame();
-        dispatch({ type: 'CLOSE_MODAL', payload: null });
+        handleClose();
     }
 
     return ( 
