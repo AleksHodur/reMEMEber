@@ -43,6 +43,10 @@
     white-space: pre-wrap;
 }
 
+.modal .option-button {
+    margin-right: 2em;
+}
+
 /* Responsive styles */
 
 @media (orientation: portrait) {

@@ -13,7 +13,8 @@ export const constants: any = {
         win: {
             title: 'You did it!!',
             content: "Congratulations on completing this obviuously very meaningful task.",
-            button: "New game"
+            button: "New game",
+            closeButton: "Close"
         }
     }
 };

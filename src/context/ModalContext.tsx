@@ -61,7 +61,7 @@ const modalReducer = (state: ModalStateType, action: ModalAction): ModalStateTyp
             return {
                 modalTitle: constants.text.win.title,
                 modalContent: constants.text.win.content,
-                goButton: null,
+                goButton: constants.text.win.closeButton,
                 newGameButton: constants.text.win.button,
                 showModal: true
             }

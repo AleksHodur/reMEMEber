@@ -27,13 +27,15 @@ function Modal ({ newGame }: ModalProps) {
             <p>{ content }</p>
             <button className='x-button' onClick={ handleClose }>X</button>
 
-            { goButton !== null && (
-                <button className='option-button' onClick={ handleClose }>{ goButton }</button>
-            )}
-
             { newGameButton !== null && (
                 <button className='option-button' onClick={ handleNewGame }>{ newGameButton }</button>
             ) }
+
+            { goButton !== null && (
+                <button className={ newGameButton === null ? 'option-button' : 'option-button only-portrait' }
+                onClick={ handleClose }
+                >{ goButton }</button>
+            )}
         </div>
         </>
     );

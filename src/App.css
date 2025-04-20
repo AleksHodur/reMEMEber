@@ -48,6 +48,10 @@ button:hover {
   .game-title {
     font-size: 8vh;
   }
+
+  .only-portrait {
+    display: none;
+  }
 }
 
 @media (orientation: portrait) {
